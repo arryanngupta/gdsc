@@ -1,0 +1,1239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Orbitron", sans-serif;
+    min-height: 100vh;
+    min-width: 100vw;
+    scroll-behavior: smooth;
+}
+
+p,ul {
+    font-family: "sans-serif";
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 0;
+}
+
+.design {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("./assests/images/background_img.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.navbar-section {
+    height: 70px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: normal;
+    padding-top: 5px;
+    margin-bottom: 25px;
+}
+
+.nav-list ul {
+    list-style: none;
+    display: flex;
+    gap: 5vw;
+    font-size: 1.2rem;
+}
+
+.nav-list ul a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.nav-list ul>a li:hover,.nav-list ul li:hover {
+    color: red;
+}
+
+
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1E1E1E;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color:black;
+}
+
+/* Show dropdown when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Optionally add some spacing to the dropdown items */
+.dropdown-content {
+    border-radius: 4px;
+}
+
+.nav-list ul i {
+    padding-top: 7px;
+}
+
+.nav-footer {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-footer .copyright {
+    font-size: 1rem;
+}
+
+.hero-section {
+    height: 73vh;
+}
+
+.text-sec {
+    height: 70vh;
+    width: 65vw;
+    color: white;
+    text-align: center;
+    margin-left: 19%;
+    margin-top: 2%;
+    padding: 3px;
+}
+
+.text-sec > * {
+    margin-top: 25px;
+}
+
+.heading {
+    font-size: 2.7rem;
+}
+
+.heading b {
+    position: relative;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.intro {
+    font-size: 1rem;
+    padding: 0 70px;
+}
+
+.background-gradient {
+    background: linear-gradient(300deg, #ff0000, #1e00ff, #d36565);
+    background-size: 180% 180%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+.text-sec button {
+    border: none;
+    height: 50px;
+    width: 160px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 750;
+    border-radius: 5px;
+}
+
+.img-one {
+    position: absolute;
+    height: 22%;
+    width: 13%;
+    top: 10%;
+}
+
+.img-two {
+    position: absolute;
+    top: 35%;
+    height: 44%;
+    width: 14%;
+    z-index: 1;
+}
+
+.img-three {
+    position: absolute;
+    bottom: 0;
+    height: 14%;
+    width: 15%;
+    z-index: 1;
+}
+
+.img-four {
+    position: absolute;
+    bottom: 0;
+    left: 45%;
+    height: 9%;
+    width: 10%;
+}
+
+.img-five {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 34%;
+    width: 25%;
+}
+
+.img-six {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    height: 35%;
+    width: 18%;
+}
+
+.img-seven {
+    position: absolute;
+    top: 12%;
+    left: 52%;
+    height: 15%;
+    width: 10%;
+}
+
+.img-eight {
+    position: absolute;
+    top: 48%;
+    left: 22%;
+}
+
+.img-nine {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    height: 10%;
+    width: 10%;
+}
+
+.img-ten {
+    position: absolute;
+    bottom: -15%;
+    left: -5%;
+    z-index: 0;
+    height: 64%;
+    width: 42%;
+}
+
+.planet {
+    color: white;
+}
+
+.Sun {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageSun {
+    height: 330px;
+    width: 100vw;
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+.extra-one-sun {
+    height: 400px;
+    width: 100vw;
+    position: absolute;
+    bottom: 43%;
+    left: 0;
+    z-index: 0;
+}
+
+.textSun {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 50vh;
+    width: 60vw;
+    margin: 5px 5px 5px 60px;
+    padding: 0 20px 10px 70px;
+}
+
+
+.planet-heading h2 {
+    font-size: 3.3rem;
+    font-weight: 900;
+}
+
+.planet-intro p {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.cardSun {
+    display: flex;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.info-card {
+    height: 130px;
+    width: 270px;
+    background-color: #3D0D46;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
+    border: 3px solid #550661;
+    border-radius: 8px;
+    padding: 3px 5px;
+}
+
+.info-card:hover{
+    background-color: #801293;
+}
+
+.info-card img {
+    height: 70%;
+    width: 35%;
+}
+
+.card-text h2 {
+    font-size: 1.9rem;
+    font-weight: 800;
+}
+
+.card-text p {
+    font-size: 1rem;
+}
+
+.Mercury {
+    display: flex;
+    align-items: center;
+    gap: 15vw;
+}
+
+.imageMercury {
+    height: 93vh;
+    width: 35vw;
+}
+
+.textMercury {
+    height: 77vh;
+    min-width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.cardMercury {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 15px;
+}
+
+.Venus {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+
+}
+
+.imageVenus {
+    height: 95vh;
+    width: 50vw;
+}
+
+.textVenus {
+    height: 77vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-left: 130px;
+}
+
+.cardVenus {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.Earth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+
+}
+
+.imageEarth {
+    position: absolute;
+    bottom: 0;
+    left: 22%;
+    height: 33vh;
+    width: 55vw;
+    z-index: 0;
+}
+
+.textEarth {
+    height: 30vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 35px;
+    position: absolute;
+    top: 10%;
+    left: 8%;
+}
+
+.cardEarth {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.subEarth {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    height: 25vh;
+    width: 50vw;
+    margin-left: 17vw;
+    margin-right: 4px;
+}
+
+.subEarth>* {
+    align-self: flex-end;
+    margin-top: 7px;
+}
+
+.planet-subheading h2 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.planet-subintro p {
+    font-size: 0.9rem;
+}
+
+.subImgEarth img {
+    position: absolute;
+    top: 43%;
+    right: 23%;
+    height: 8%;
+    width: 8%;
+}
+
+.extra-one-earth {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 25%;
+    width: 15%;
+}
+
+.extra-two-earth {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    height: 25%;
+    width: 15%;
+}
+
+.extra-three-earth {
+    position: absolute;
+    bottom: 0%;
+    left: 21%;
+    height: 37vh;
+    width: 57vw;
+}
+
+.Mars {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.imageMars {
+    position: absolute;
+    height: 50%;
+    width: 27%;
+}
+
+.textMars {
+    height: 30vh;
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 35px;
+    position: absolute;
+    top: 10%;
+    left: 8%;
+}
+
+.cardMars {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    margin-top: 15px;
+    margin-left: 15vw;
+}
+
+.subMars {
+    display: flex;
+    position: absolute;
+    gap: 20px;
+    flex-direction: column;
+    top: 46%;
+    left: 35%;
+    width: 30vw;
+}
+
+.subMars>* {
+    margin-top: 7px;
+}
+
+.subImgMars img {
+    position: absolute;
+    top: 18%;
+    left: -24%;
+    height: 27%;
+    width: 20%;
+}
+
+.miniplanet-Phobos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 13%;
+    left: 27%;
+}
+
+.miniplanet-Deimos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 36%;
+    left: 20%;
+}
+
+.miniplanet-Phobos > *,.miniplanet-Deimos > * {
+    margin-top: 10px;
+}
+
+
+.miniMars > * {
+    margin-top: 7px;
+}
+
+.planet-miniheading h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.miniImgPhobos {
+    height: 18vh;
+    width: 10vw;
+}
+
+.miniImgDeimos {
+    height: 12vh;
+    width: 7vw;
+}
+
+.Jupiter {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+}
+
+.imageJupiter {
+    height: 100vh;
+    width: 49vw;
+}
+
+.extra-one-jupiter {
+    height: 80vh;
+    width: 38vw;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+.textJupiter {
+    height: 77vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-left: 130px;
+}
+
+.cardJupiter {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.Saturn {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.imageSaturn {
+    height: 100vh;
+    width: 53vw;
+}
+
+.textSaturn {
+    height: 90vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-right: 5vw;
+}
+
+.textSaturn>* {
+    align-self: flex-end;
+}
+
+.cardSaturn {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.Uranus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.imageUranus {
+    height: 60vh;
+    width: 80vw;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+}
+
+.textUranus {
+    height: 30vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 45px;
+    position: absolute;
+    top: 10%;
+    left: 8%;
+}
+
+.cardUranus {
+    display: flex;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.Neptune {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.Neptune>* {
+    margin-top: 50px;
+}
+
+.imageNeptune {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 80vh;
+    width: 70vw;
+}
+
+.textNeptune {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 50vh;
+    width: 60vw;
+}
+
+.cardNeptune {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.footer-section {
+    position: relative;
+    height: 60vh;
+    width: 100vw;
+    background-image: url("./assests/images/background_img.png");
+}
+
+.half-planet-img {
+    width: 70vw;
+}
+
+.dashboard {
+    height: 50vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1E1E1E;
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    border-radius: 30px;
+}
+
+.dashboard>* {
+    margin-top: 10px;
+}
+
+.dash-text {
+    text-align: center;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    height: 30vh;
+    width: 50vw;
+    padding: 10px 64px;
+
+}
+
+.dash-text h2 {
+    font-size: 2.3rem;
+    font-weight: 800;
+}
+
+.dash-text p {
+    font-size: 1rem;
+}
+
+.dash-text>* {
+    margin-top: 10px;
+}
+
+.mail {
+    height: 8vh;
+    width: 27vw;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mail input {
+    height: 70%;
+    width: 30%;
+    margin-left: 10px;
+    border: none;
+    font-size: 1rem;
+    color: #333333;
+    font-weight: 700;
+}
+
+.mail button {
+    height: 70%;
+    width: 30%;
+    border-radius: 20px;
+    margin-right: 10px;
+    color: #FFFFFF;
+    font-weight: 700;
+    border: none;
+    font-size: 0.8rem;
+    overflow: hidden;
+}
+
+span {
+    height: 100px;
+    width: 50px;
+    margin-left: 5px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+span i {
+    color: black;
+    margin: 5px;
+}
+
+.dash-footer {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Adding Media Queries 👇 */
+
+@media (max-width:1189px) {
+    .heading {
+        font-size: 1.8rem;
+    }
+
+    .nav-logo img {
+        width: 17vw;
+    }
+
+    .planet-heading h2 {
+        font-size: 2rem;
+    }
+
+    .planet-intro p {
+        font-size: 1rem;
+    }
+
+    .textSun {
+        gap: 5px;
+
+    }
+
+    .textMercury {
+        gap: 10px;
+    }
+
+    .cardMercury {
+        gap: 15px;
+    }
+
+    .info-Mercury {
+        height: 100px;
+        width: 180px;
+    }
+
+    .miniImgDeimos {
+        height: 55%;
+        width: 55%;
+    }
+
+    .miniImgPhobos {
+        height: 75%;
+        width: 75%;
+    }
+
+
+    .planet-miniheading h3 {
+        font-size: 0.7rem;
+    }
+
+    .info-Uranus {
+        height: 80%;
+        width: 80%;
+    }
+
+    .mail input {
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
+
+    .dash-text {
+        width: 100%;
+        gap: 5px;
+        height: 15vh;
+        padding: 5px;
+    }
+
+    .dash-text h2 {
+        font-size: 1rem;
+    }
+
+    .dash-text p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:950px) {
+    .info-Earth {
+        height: 100%;
+        width: 100%;
+    }
+
+    .cardEarth h2 {
+        font-size: 1.3rem;
+    }
+
+    .cardEarth p {
+        font-size: 0.9rem;
+    }
+
+    .info-Mars {
+        width: 80%;
+        height: 30%;
+    }
+}
+
+@media(max-width:865px) {
+    .miniplanet-Deimos {
+        left: 16%;
+    }
+
+    .miniplanet-Phobos {
+        left: 23%;
+    }
+
+    .miniImgPhobos {
+        height: 65%;
+        width: 65%;
+    }
+}
+
+@media (max-width:797px) {
+
+    .navbar-section {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav-list {
+        gap: 6px;
+    }
+
+    .nav-list ul a {
+        font-size: 0.7rem;
+    }
+
+    .nav-list ul i {
+        padding-top: 0px;
+    }
+
+    .nav-footer {
+        width: 30vw;
+    }
+
+    .heading {
+        font-size: 1.4rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .intro {
+        position: relative;
+        margin: 30px 10px;
+        font-size: 0.7rem;
+        z-index: 1;
+    }
+
+    .textSun {
+        width: 70vw;
+    }
+
+    .card-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .card-text p {
+        font-size: 0.8rem;
+    }
+
+    .Venus {
+        gap: 10px;
+    }
+
+    .mail button {
+        font-size: 0.4rem;
+        font-weight: normal;
+    }
+}
+
+@media(max-width:571px) {
+    .textVenus {
+        margin: 10px;
+    }
+
+    .info-Venus {
+        height: 45%;
+        width: 80%;
+    }
+
+    .planet-subheading h2 {
+        font-size: 1.2rem;
+    }
+
+    .subEarth {
+        gap: 5px;
+    }
+
+    .subEarth > * {
+        margin-top: 5px;
+    }
+
+    .info-Saturn {
+        height: 30%;
+        width: 90%;
+    }
+
+    .textUranus .planet-heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .textUranus .planet-intro p {
+        font-size: 0.7rem;
+    }
+}
+
+
+@media(max-width:545px) {
+    .navbar-section {
+        padding: 0;
+    }
+
+    .nav-logo {
+        margin-top: -12px;
+    }
+
+    .nav-list ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-list ul a {
+        font-size: 0.5rem;
+    }
+
+    .nav-list ul i {
+        font-size: 0.7rem;
+    }
+
+    .text-sec {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .heading {
+        font-size: 1rem;
+    }
+
+    .intro {
+        font-size: 1rem;
+        margin: 5px;
+        padding: 0
+    }
+
+    .textSun {
+        width: 100vw;
+        margin: 0px;
+        padding: 10px;
+    }
+
+    .card-text h2 {
+        font-size: 1rem;
+    }
+
+    .subMars {
+        left: 40%;
+
+    }
+
+    .subMars h2 {
+        font-size: 1rem;
+    }
+
+    .subMars p {
+        font-size: 0.7rem;
+    }
+
+}
+
+@media (max-width:463px) {
+    .textMars .planet-heading h2 {
+        font-size: 1.3rem;
+    }
+
+    .textMars .planet-intro p {
+        font-size: 0.7rem;
+    }
+
+    .info-Mars h2 {
+        font-size: 0.7rem;
+    }
+
+    .info-Mars p {
+        font-size: 0.5rem;
+    }
+
+    .info-Jupiter {
+        height: 40%;
+        width: 83%;
+    }
+
+    .textJupiter {
+        padding: 0;
+        margin: 10px;
+    }
+
+    .cardUranus {
+        gap: 5px;
+    }
+
+    .cardUranus h2 {
+        font-size: 0.6rem;
+    }
+
+    .cardUranus p {
+        font-size: 0.4rem;
+    }
+}
+
+@media (max-width:430px) {
+    .textEarth {
+
+        width: 50vw;
+    }
+
+    .textEarth h2 {
+        font-size: 1.4rem;
+    }
+
+    .textEarth p {
+        font-size: 0.8rem;
+    }
+
+    .textMars .planet-heading h2 {
+        font-size: 1.3rem;
+    }
+
+    .textMars .planet-intro p {
+        font-size: 0.7rem;
+    }
+
+    .cardNeptune {
+        gap: 5px;
+    }
+
+    .info-Neptune h2 {
+        font-size: 0.8rem;
+    }
+
+    .info-Neptune p {
+        font-size: 0.7rem;
+    }
+
+}
+
+@media (max-width:405px) {
+    .info-Venus img {
+        height: 40px;
+    }
+
+    .cardEarth h2 {
+        font-size: 1rem;
+    }
+
+    .nav-footer .copyright {
+        font-size: 0.7rem;
+    }
+
+
+}
+
+@media (max-width:375px) {
+
+    .hero-section button {
+        width: 40%;
+        font-size: 0.7rem;
+    }
+
+    .cardSun {
+        gap: 7px;
+        margin-right: 5px;
+    }
+
+    .cardSun h2 {
+        font-size: 0.8rem;
+    }
+
+    .Mercury {
+        padding: 5px;
+    }
+
+    .info-Mercury {
+        padding: 4x;
+        height: 80px;
+    }
+
+    .cardMercury p {
+        font-size: 0.5rem;
+    }
+
+    .subMars {
+        left: 50%;
+    }
+
+    .cardMars {
+        margin-right: 15px;
+    }
+
+    .nav-footer .copyright {
+        font-size: 0.5rem;
+    }
+}
