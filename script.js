@@ -35,8 +35,8 @@ function createNavbar(className) {
 
                 <div class="nav-footer">
                 </div>`;
-    document.querySelectorAll(`.${className}`).forEach((nav) => {
-        nav.innerHTML = navbarHtml;
+    document.querySelectorAll(`.${className}`).forEach((navbar) => {
+        navbar.innerHTML = navbarHtml;
     });
 }
 
@@ -51,13 +51,10 @@ document.querySelectorAll(".nav-footer").forEach((footer) => {
 
 // Function to handle smooth scrolling when dropdown items are clicked
 function handleDropdownClick(event) {
-    // Prevent the default link behavior
-    event.preventDefault();
 
-    // Get the target section ID from the href attribute
+    event.preventDefault();
     const targetId = this.getAttribute('href').substring(1);
     // console.log(targetId);
-    
 
     // Scroll to the target section
     document.getElementById(targetId).scrollIntoView({
@@ -78,10 +75,13 @@ document.querySelectorAll('.nav-list > ul a').forEach(anchor => {
 //Creating web page of all the planets👇
 function createPlanet(planetName) {
     const planet = planetsData[planetName];
-    let planetHtml = `<div id="${planet["heading"]}" class="planet design ${planet["heading"]}">
+    let planetHtml =
+        `<div id="${planet["heading"]}" class="planet design ${planet["heading"]}">
+
     <div class="planet-img ${planet["heading"]}Img">
-            <img src="${planet["image"]}" class="image${planet["heading"]}" />
+            <img src="${planet["image"]}" class="image${planet["heading"]}" alt="${planet["heading"]} image" />
         </div>
+
     <div class="planet-text text${planet["heading"]}"> 
 
     <div class="planet-heading">
@@ -91,11 +91,11 @@ function createPlanet(planetName) {
             <p>${planet["intro"]}</p>
         </div>`
 
-
+    // Adding cards
     let normalHtml = '';
     planet["details"].forEach((element) => {
         normalHtml += `<div class="info-card info-${planet["heading"]}">
-                    <img src="${element["img"]}" />
+                    <img src="${element["img"]}" alt="${planet["title"]} image" />
                     <div class="card-text">
                     <p>${element["title"]}</p>
                     <h2>${element["value"]}</h2>
@@ -117,7 +117,7 @@ function createPlanet(planetName) {
                 <p>${planet["subintro"]}</p>
             </div>
             <div class="planet-subimg subImg${planet["heading"]}">
-                <img src="${planet["subimage"]}" />
+                <img src="${planet["subimage"]}" alt="${planet["subheading"]} image" />
     </div>
     </div>`
     }
@@ -128,7 +128,7 @@ function createPlanet(planetName) {
         planet["miniheading"].forEach((element) => {
             miniHtml += ` <div class="miniplanet-${element["heading"]}">
             <div class="planet-miniimg miniImg${planet["heading"]}">
-            <img class="miniImg${element["heading"]}" src="${element["img"]}" />
+            <img class="miniImg${element["heading"]}" src="${element["img"]}"l alt="${element["miniheading"]} image" />
             </div>   
             <div class="planet-miniheading">
                 <h3>${element["heading"]}</h3>
@@ -140,75 +140,57 @@ function createPlanet(planetName) {
         </div>`;
     }
     document.querySelector(".planets-section").innerHTML += planetHtml;
+
     // Add fade-in effect
     setTimeout(() => {
         document.getElementById(planet["heading"]).classList.add('visible');
     }, 100);
 
-   
+
 }
 
-
-
-
-
 // Adding all these planet to our web page.
-createPlanet("sun");
-createPlanet("mercury");
-createPlanet("venus");
-createPlanet("earth");
-createPlanet("mars");
-createPlanet("jupiter");
-createPlanet("saturn");
-createPlanet("uranus");
-createPlanet("neptune");
-
+const planets = ["sun", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"];
+planets.forEach((planet) => {
+    createPlanet(planet);
+});
 
 // Adding some extra images elements(like shadows or reflections) to some planets.
-document.querySelector(".planet-images-sec").innerHTML += `<img class="img-ten" src="./assests/images/header_shadow.png" />`
-document.querySelector(".EarthImg").innerHTML += `<img class="extra-one-earth" src="./assests/images/rocket.png"/>`
-document.querySelector(".EarthImg").innerHTML += `<img class="extra-two-earth" src="./assests/images/moon.png"/>`
-document.querySelector(".EarthImg").innerHTML += `<img class="extra-three-earth" src="./assests/images/earthshading.png"/>`
-document.querySelector(".SunImg").innerHTML += `<img class="extra-one-sun" src="./assests/images/sun_shadow.png"/>`
-document.querySelector(".JupiterImg").innerHTML += `<img class="extra-one-jupiter" src="./assests/images/jupiter_shadow.png"/>`
+document.querySelector(".planet-images-sec").innerHTML += `<img class="img-ten" src="./assests/images/header_shadow.png" alt="header shadow image"/>`
+document.querySelector(".EarthImg").innerHTML += `<img class="extra-one-earth" src="./assests/images/rocket.png" alt="rocket image"/>`
+document.querySelector(".EarthImg").innerHTML += `<img class="extra-two-earth" src="./assests/images/moon.png" alt="moon image"/>`
+document.querySelector(".EarthImg").innerHTML += `<img class="extra-three-earth" src="./assests/images/earthshading.png" alt="earth shading image"/>`
+document.querySelector(".SunImg").innerHTML += `<img class="extra-one-sun" src="./assests/images/sun_shadow.png" alt="sun shadow image"/>`
+document.querySelector(".JupiterImg").innerHTML += `<img class="extra-one-jupiter" src="./assests/images/jupiter_shadow.png" alt="jupiter shadow image"/>`
 
-// script.js
+// Adding an event listener which to render a particular planet web page.
+
 document.addEventListener('DOMContentLoaded', () => {
     const headings = document.querySelectorAll('.planet-heading h2, .planet-subheading h2, .planet-miniheading h3');
-    // console.log('Headings found:', headings);
-
     const planetImages = document.querySelectorAll('.planet-img');
-  
-
     const options = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5 // Adjust as needed
+        threshold: 0.5
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // console.log('Entry:', entry);
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-typing');
                 entry.target.classList.add('visi');
-                
             } else {
                 entry.target.classList.remove('animate-typing');
                 entry.target.classList.remove('visi');
-              
             }
         });
     }, options);
 
     headings.forEach(heading => {
-        console.log('Observing:', heading);
         observer.observe(heading);
     });
 
     planetImages.forEach(image => {
         observer.observe(image);
     });
-
-
 });
