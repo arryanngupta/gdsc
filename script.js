@@ -56,6 +56,8 @@ function handleDropdownClick(event) {
 
     // Get the target section ID from the href attribute
     const targetId = this.getAttribute('href').substring(1);
+    // console.log(targetId);
+    
 
     // Scroll to the target section
     document.getElementById(targetId).scrollIntoView({
@@ -65,6 +67,10 @@ function handleDropdownClick(event) {
 
 // Adding event listeners to dropdown links
 document.querySelectorAll('.dropdown-content a').forEach(anchor => {
+    anchor.addEventListener('click', handleDropdownClick);
+});
+
+document.querySelectorAll('.nav-list > ul a').forEach(anchor => {
     anchor.addEventListener('click', handleDropdownClick);
 });
 
@@ -134,7 +140,17 @@ function createPlanet(planetName) {
         </div>`;
     }
     document.querySelector(".planets-section").innerHTML += planetHtml;
+    // Add fade-in effect
+    setTimeout(() => {
+        document.getElementById(planet["heading"]).classList.add('visible');
+    }, 100);
+
+   
 }
+
+
+
+
 
 // Adding all these planet to our web page.
 createPlanet("sun");
@@ -156,3 +172,43 @@ document.querySelector(".EarthImg").innerHTML += `<img class="extra-three-earth"
 document.querySelector(".SunImg").innerHTML += `<img class="extra-one-sun" src="./assests/images/sun_shadow.png"/>`
 document.querySelector(".JupiterImg").innerHTML += `<img class="extra-one-jupiter" src="./assests/images/jupiter_shadow.png"/>`
 
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const headings = document.querySelectorAll('.planet-heading h2, .planet-subheading h2, .planet-miniheading h3');
+    // console.log('Headings found:', headings);
+
+    const planetImages = document.querySelectorAll('.planet-img');
+  
+
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 // Adjust as needed
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // console.log('Entry:', entry);
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-typing');
+                entry.target.classList.add('visi');
+                
+            } else {
+                entry.target.classList.remove('animate-typing');
+                entry.target.classList.remove('visi');
+              
+            }
+        });
+    }, options);
+
+    headings.forEach(heading => {
+        console.log('Observing:', heading);
+        observer.observe(heading);
+    });
+
+    planetImages.forEach(image => {
+        observer.observe(image);
+    });
+
+
+});

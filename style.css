@@ -54,11 +54,13 @@ p,ul {
     display: flex;
     gap: 5vw;
     font-size: 1.2rem;
+   
 }
 
 .nav-list ul a {
     color: #FFFFFF;
     text-decoration: none;
+  
 }
 
 .nav-list ul>a li:hover,.nav-list ul li:hover {
@@ -82,6 +84,8 @@ p,ul {
     z-index: 1000;
     top: 100%;
     left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .dropdown-content a {
@@ -99,6 +103,7 @@ p,ul {
 /* Show dropdown when hovering over the dropdown container */
 .dropdown:hover .dropdown-content {
     display: block;
+    opacity:1;
 }
 
 /* Optionally add some spacing to the dropdown items */
@@ -152,10 +157,64 @@ p,ul {
     padding: 0 70px;
 }
 
-.background-gradient {
+
+
+
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(300deg, #ff0000, #1e00ff, #d36565);
     background-size: 180% 180%;
     animation: gradient-animation 10s ease infinite;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
 }
 
 @keyframes gradient-animation {
@@ -172,16 +231,27 @@ p,ul {
     }
 }
 
-
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
 
 .text-sec button {
+    position: absolute;
+    left: 45%;
     border: none;
     height: 50px;
     width: 160px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.text-sec button a{
     color: white;
     font-size: 0.9rem;
     font-weight: 750;
-    border-radius: 5px;
+    text-decoration: none;
 }
 
 .img-one {
@@ -283,7 +353,8 @@ p,ul {
     height: 400px;
     width: 100vw;
     position: absolute;
-    bottom: 43%;
+    top: 0%;;
+    
     left: 0;
     z-index: 0;
 }
@@ -326,11 +397,18 @@ p,ul {
     border: 3px solid #550661;
     border-radius: 8px;
     padding: 3px 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.8s; /* Smooth transition for flip effect */
+    transform-style: preserve-3d;
 }
 
-.info-card:hover{
+.info-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
     background-color: #801293;
+    transform: rotateY(360deg);
 }
+
 
 .info-card img {
     height: 70%;
@@ -405,7 +483,7 @@ p,ul {
     flex-direction: row;
     align-items: center;
     position: relative;
-
+    
 }
 
 .imageEarth {
@@ -832,6 +910,83 @@ span i {
     margin-top: 30px;
 }
 
+/* Add this to your CSS */
+.planet {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.planet.visible {
+    opacity: 1;
+}
+
+/* Add this to your CSS */
+.planet-img img,.img {
+    transition: transform 0.3s ease;
+}
+
+.planet-img img:hover,.img:hover {
+    transform: scale(1.1);
+}
+
+/* Add this to your CSS file */
+.text-sec .heading {
+    white-space: wrap;
+    overflow:visible;
+    animation: typing 1s steps(30, end);
+}
+
+/* Basic styling for the headings */
+.planet-heading h2 ,.planet-subheading h2,.planet-miniheading h3{
+    color: #ffffff;
+    opacity: 1; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition when opacity changes */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide text that overflows */
+    width: auto; /* Initial width for typing effect */
+   
+}
+
+/* Define the animation for the headings */
+.animate-typing {
+    animation: typing 2s steps(30, end), blink-caret .75s step-end infinite; /* Apply typing effect and caret blink */
+    opacity: 1; /* Make the element visible */
+    width: auto; /* Reset width after animation starts */
+}
+
+/* Keyframes for the typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Keyframes for the caret blink effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ffffff; }
+}
+
+.planet-img{
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Smooth transition */
+}
+
+/* When image is visible */
+.visi {
+    opacity: 1; /* Fade in */
+} 
+
+.heading,.planet-heading h2,.planet-subheading,.planet-miniheading ,.planet-intro p,.planet-subintro p{
+    position: relative;
+    color: #fff;
+    transition: text-shadow 0.3s ease;
+}
+
+.heading:hover,.planet-heading h2:hover, .planet-subheading:hover,.planet-miniheading:hover,.planet-intro p:hover,.planet-subintro p:hover{
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+
 /* Adding Media Queries 👇 */
 
 @media (max-width:1189px) {
@@ -853,8 +1008,13 @@ span i {
 
     .textSun {
         gap: 5px;
-
     }
+
+    .info-Sun{
+        height:45%;
+        width: 50%;
+    }
+    
 
     .textMercury {
         gap: 10px;
@@ -1067,6 +1227,12 @@ span i {
         flex-direction: column;
         align-items: center;
         gap: 20px;
+    }
+
+    .text-sec button{
+     
+        bottom:18%;
+        left:33vw;
     }
 
     .heading {
