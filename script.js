@@ -128,7 +128,7 @@ function createPlanet(planetName) {
         planet["miniheading"].forEach((element) => {
             miniHtml += ` <div class="miniplanet-${element["heading"]}">
             <div class="planet-miniimg miniImg${planet["heading"]}">
-            <img class="miniImg${element["heading"]}" src="${element["img"]}"l alt="${element["miniheading"]} image" />
+            <img class="planet-miniimg miniImg${element["heading"]}" src="${element["img"]}"l alt="${element["miniheading"]} image" />
             </div>   
             <div class="planet-miniheading">
                 <h3>${element["heading"]}</h3>
@@ -146,7 +146,11 @@ function createPlanet(planetName) {
         document.getElementById(planet["heading"]).classList.add('visible');
     }, 100);
 
-
+    setTimeout(() => {
+        document.querySelectorAll(".img").forEach((img)=>{
+            img.classList.add('visible');
+        });
+    }, 1000);
 }
 
 // Adding all these planet to our web page.
@@ -167,30 +171,31 @@ document.querySelector(".JupiterImg").innerHTML += `<img class="extra-one-jupite
 
 document.addEventListener('DOMContentLoaded', () => {
     const headings = document.querySelectorAll('.planet-heading h2, .planet-subheading h2, .planet-miniheading h3');
-    const planetImages = document.querySelectorAll('.planet-img');
-    const options = {
+    const planetImages = document.querySelectorAll('.planet-img,.planet-subimg,.planet-miniimg');
+    
+    const opt = {
         root: null,
         rootMargin: '0px',
         threshold: 0.5
     };
-
-    const observer = new IntersectionObserver((entries) => {
+    const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-typing');
-                entry.target.classList.add('visi');
-            } else {
-                entry.target.classList.remove('animate-typing');
-                entry.target.classList.remove('visi');
-            }
+            if (entry.isIntersecting) {                    
+                    entry.target.classList.add('visi');
+                    entry.target.classList.add('animate-typing');
+                } else {
+                    entry.target.classList.remove('animate-typing');
+                    entry.target.classList.remove('visi');   
+                }
         });
-    }, options);
+    }, opt);
 
     headings.forEach(heading => {
-        observer.observe(heading);
+        obs.observe(heading);
     });
 
     planetImages.forEach(image => {
-        observer.observe(image);
+        obs.observe(image);
     });
+
 });
