@@ -141,7 +141,7 @@ function createPlanet(planetName) {
     }
     document.querySelector(".planets-section").innerHTML += planetHtml;
 
-    // Add fade-in effect
+    // Adding fade-in effect
     setTimeout(() => {
         document.getElementById(planet["heading"]).classList.add('visible');
     }, 100);
@@ -167,7 +167,7 @@ document.querySelector(".EarthImg").innerHTML += `<img class="extra-three-earth"
 document.querySelector(".SunImg").innerHTML += `<img class="extra-one-sun" src="./assests/images/sun_shadow.png" alt="sun shadow image"/>`
 document.querySelector(".JupiterImg").innerHTML += `<img class="extra-one-jupiter" src="./assests/images/jupiter_shadow.png" alt="jupiter shadow image"/>`
 
-// Adding an event listener which to render a particular planet web page.
+// Adding an event listener which is used to animate planet's images and text.
 
 document.addEventListener('DOMContentLoaded', () => {
     const headings = document.querySelectorAll('.planet-heading h2, .planet-subheading h2, .planet-miniheading h3');
